@@ -1,6 +1,6 @@
 // IMPORTAÇÕES
 const express = require('express')
-const exphbs = require ('express-handlebars')
+const { engine } = require ('express-handlebars')
 const session  = require('express-session')
 const FileStore = require('session-file-store')(session)
 const flash = require('express-flash')
@@ -8,8 +8,20 @@ const conn = require('./db/conn')
 
 const app = express()
 
+//MODELS
+const Thought = require('./models/Thoughts')
+const User = require('./models/User')
+
+// IMPORT ROUTES
+const thoughtsRoutes = require('./routes/thoughtsRoutes')
+const authRoutes = require('./routes/authRoutes')
+
+
+//IMPORT CONTROLLER
+const ThoughtController = require('./controllers/thoughtController')
+
 // TEMPLATE ENGINE
-app.engine('handlebars', exphbs())
+app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
 
 // RECEBE RESPOSTA DO BODY
@@ -40,6 +52,13 @@ app.use(
     }),
 )
 
+// ROUTES
+app.use('/thoughts', thoughtsRoutes)
+app.use('/', authRoutes)
+
+
+app.get('/', ThoughtController.showThoughts)
+
 // FLASH MESSAGES
 app.use(flash())
 
@@ -55,7 +74,10 @@ app.use((req, res, next) => {
     next()
 })
 
+//
+
 conn
+    //.sync({ force: true })
     .sync()
     .then(() => {
         app.listen(3000)
