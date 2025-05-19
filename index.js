@@ -52,13 +52,6 @@ app.use(
     }),
 )
 
-// ROUTES
-app.use('/thoughts', thoughtsRoutes)
-app.use('/', authRoutes)
-
-
-app.get('/', ThoughtController.showThoughts)
-
 // FLASH MESSAGES
 app.use(flash())
 
@@ -73,6 +66,16 @@ app.use((req, res, next) => {
 
     next()
 })
+
+// ROUTES
+app.use('/thoughts', thoughtsRoutes)
+app.use('/', authRoutes)
+
+
+app.get('/', ThoughtController.showThoughts)
+
+
+
 
 //
 
