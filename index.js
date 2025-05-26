@@ -75,10 +75,6 @@ app.use('/', authRoutes)
 app.get('/', ThoughtController.showThoughts)
 
 
-
-
-//
-
 conn
     //.sync({ force: true })
     .sync()
