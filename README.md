@@ -1,6 +1,6 @@
 # 🧠 Thoughts App
 
-Aplicação Node.js com padrão MVC e template engine Handlebars para front, se conectada a um banco de dados MySQL via Sequelize. O banco roda em um container Docker.
+Aplicação Node.js com padrão MVC e template engine Handlebars para o front, se conectada a um banco de dados MySQL via Sequelize. O banco roda em um container Docker.
 
 ---
 
@@ -44,7 +44,7 @@ cp .env.example .env
 
 ### 3. 🐳 Suba container do banco
 ```bash
-cocker compose up -d
+dcocker compose up -d
 ```
 
 ### 3. 🚀 Rode o projeto
