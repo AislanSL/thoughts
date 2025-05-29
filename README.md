@@ -1,6 +1,6 @@
 # 🧠 Thoughts App
 
-Aplicação Node.js com padrão MVC e template engine Handlebars, conectada a um banco de dados MySQL via Sequelize. O banco roda em um container Docker.
+Aplicação Node.js com padrão MVC e template engine Handlebars para front, se conectada a um banco de dados MySQL via Sequelize. O banco roda em um container Docker.
 
 ---
 
@@ -28,5 +28,27 @@ Aplicação Node.js com padrão MVC e template engine Handlebars, conectada a um
 ### 1. Clone o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
+git clone https://github.com/AislanSL/thoughts.git
+cd thoughts
+```
+
+### 2. 📂 Instale as dependências
+```bash
+npm install
+```
+
+### 3.Copie o arquivo .env.example e crie seu .env
+```bash
+cp .env.example .env
+```
+
+### 3. 🐳 Suba container do banco
+```bash
+cocker compose up -d
+```
+
+### 3. 🚀 Rode o projeto
+```bash
+npm start
+```
+
