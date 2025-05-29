@@ -44,7 +44,7 @@ cp .env.example .env
 
 ### 3. 🐳 Suba container do banco
 ```bash
-dcocker compose up -d
+docker compose up -d
 ```
 
 ### 3. 🚀 Rode o projeto
